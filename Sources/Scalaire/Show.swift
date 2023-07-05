@@ -21,7 +21,7 @@ public struct Chiffres {
         if scalar.isglobal10 {
             unico10 = unicode
         } else {
-            let s10 = Scalar(Numeration())
+            var s10 = Scalar(Numeration())
             s10.set(scalar.real)
             unico10 = UnicodePresentation(s10)
         }
@@ -35,7 +35,7 @@ public struct Lettres {
     public var litterals : [LitteralPresentation] = []
     public var tospeech : String = ""
 
-    public init(_ value: Int = 0,_ langs:[Ecriture] = defaultlangs) {
+    public init(_ value: Int = 0,_ langs:[Ecriture] = defaultscripts) {
         for i in 0..<langs.count {
             litterals.append(LitteralPresentation(value, langs[i]))
         }

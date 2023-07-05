@@ -35,7 +35,7 @@ struct Aramblock: View {
     
     var body: some View {
 
-            Glyshape(value:value,size:size,set:set)
+            Glyshape(value:value, size:size,set:set)
 
     }
 }

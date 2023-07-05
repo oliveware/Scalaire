@@ -163,15 +163,6 @@ public enum Graphism : String {
     case boulier    = "boulier"
 }
 
-public enum Clavier: String {
-
-    case simple     = "1 chiffre"
-    case digit60    = "chiffre composé d'un ou deux glyphes cunéiformes "
-    case chinois    = "composition d'un groupe chinois"
-    case indien     = "composition d'un groupe indien"
-    case additif    = "additif antique"
-}
-
 public struct Numeration {
 
     public var glyphes: [[String]] = []     // caractères unicode utilisés comme chiffres
@@ -194,18 +185,7 @@ public struct Numeration {
         numicode == .global && base == 10
     }
     
-    public var clavier:Clavier {
-        switch numicode {
-        case .babylon, .sumer60:
-            return .digit60
-        case .hanzi, .kanji, .kor:
-            return .chinois
-        case .roman, .greek, .aegypt :
-            return .additif
-        default:
-            return .simple
-        }
-    }
+
     
     public func isnot(_ numer:Numeration) -> Bool {
         return numicode != numer.numicode || base != numer.base
@@ -428,7 +408,7 @@ public struct Numeration {
         return range
     }
     
-    func setnativebase() {
+    mutating func setnativebase() {
         switch numicode {
         case .shadok:
             nativebase = 4
@@ -451,12 +431,12 @@ public struct Numeration {
         }
     }
     
-    public func setbasetonative()-> Int {
+    mutating public func setbasetonative()-> Int {
         base = nativebase
         return base
     }
     
-    func set(_ asked:Int) {
+    mutating func set(_ asked:Int) {
         if baserange.contains(asked) {
             base = asked
         } else {
@@ -474,7 +454,7 @@ public struct Numeration {
         }
     }
     
-    public func change(_ incordec:Bool) {
+   mutating  public func change(_ incordec:Bool) {
         var b: Int
         if incordec {
             if base == baserange.upperBound {
@@ -492,13 +472,13 @@ public struct Numeration {
         change(numicode, b)
     }
     
-    public func setbase(_ newbase: Int) {
+    mutating public func setbase(_ newbase: Int) {
         if baserange.contains(newbase) {
             change(numicode, newbase)
         }
     }
     
-    public func change(_ choice:Numicode,_ b:Int, _ locked:Bool = false){
+    mutating public func change(_ choice:Numicode,_ b:Int, _ locked:Bool = false){
         graphism = .none
         groupby = 3
         set(choice)

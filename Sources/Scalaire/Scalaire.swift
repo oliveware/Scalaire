@@ -1,4 +1,6 @@
-public struct Scalaire {
+import SwiftUI
+
+/*public struct Scalaire {
     
     var groupes : [Digigroup]
     
@@ -16,7 +18,22 @@ public struct Scalaire {
 
     public init() {
     }
+}*/
+
+public struct Scalaire : View {
+    
+    public init() {
+        
+    }
+    
+    public var body: some View {
+        HStack {
+            
+        }
+    }
 }
+
+
 
 public struct Digigroup {
     var power: Int

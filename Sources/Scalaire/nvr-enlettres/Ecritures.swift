@@ -7,6 +7,7 @@
 
 import Foundation
 
+public var defaultscripts: [Ecriture] = [.uni, .fr, .zh, .rusc, .japa]
 
 public var ecritures : [Ecriture] = [.af, .als, .amh, .ar, .hy, .bibi, .bok, .br, .bro, .bsq, .bulc, .zh, .chol, .dan, .de, .elg, .en, .esto, .far, .fr, .hnd, .id, .irg, .isl, .it, .japa, .kor, .latin, .letton, .litua, .mal, .mapu, .nl, .np, .pic, .pol, .pt, .rhg, .rusc, .scg, .sp, .srp, .sue, .tif, .turc, .twn, .ukc, .viet, .wag ]
 

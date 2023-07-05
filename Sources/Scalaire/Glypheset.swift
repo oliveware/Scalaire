@@ -17,14 +17,14 @@ struct Classifierset {
     init(_ numicode:Numicode = .global) {
         switch numicode {
         case .hanzi:
-            high = Toucheset("hanzi_wan").symbols
-            low = Toucheset("hanzi_10").symbols
+            high = Chinois.symbols(.hanzi_wan)
+            low = Chinois.symbols(.hanzi_10)
         case .kanji:
-            high = Toucheset("kanji_man").symbols
-            low = Toucheset("kanji_10").symbols
+            high = Chinois.symbols(.kanji_man)
+            low = Chinois.symbols(.kanji_10)
         case .kor:
-            high = Toucheset("hangeul_man").symbols
-            low = Toucheset("hangeul_10").symbols
+            high = Chinois.symbols(.hangeul_man)
+            low = Chinois.symbols(.hangeul_10)
         default:
             high = []
             low = []

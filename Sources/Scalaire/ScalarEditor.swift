@@ -16,7 +16,7 @@ public enum ScalarSet: String {
 }
 
 struct ScalarEditor: View {
-    @ObservedObject var unicode: UnicodePresentation
+    var unicode: UnicodePresentation
     var mesure = Mesure()
     
     var index = 0
